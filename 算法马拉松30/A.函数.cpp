@@ -1,7 +1,24 @@
+// http://www.51nod.com/onlineJudge/questionCode.html#!problemId=1829
+
 #include<iostream>
 using namespace std;
 
 const int p = 1e9+7;
+
+long long exp_mod(long long n, long long m) {
+    if (m == 0)
+        return 1;
+    long long temp = exp_mod(n, m / 2);
+    temp = (temp * temp) % p;
+    if (m % 2)
+        return (temp * n) % p;
+    return temp;
+}
+
+long long stirling(int m, int n) {
+    // priciple of inclusion and exclusion
+    // s(m, n) = \frac{1}{n!} \sum_{i=0}^n (-1)^i \binom{n}{i} (n-i)^m
+}
 
 long long solve(int n, int m) {
     // TODO:
